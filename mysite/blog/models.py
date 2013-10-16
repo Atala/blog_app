@@ -10,7 +10,7 @@ import calendar
 
 
 class Category(models.Model):
-	title = models.CharField(max_length=100)
+	title = models.CharField(max_length=100, primary_key = True)
 	slug = models.SlugField(max_length=100, db_index=True)
 	
 	def __unicode__ (self):
