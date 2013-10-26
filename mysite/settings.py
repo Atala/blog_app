@@ -1,4 +1,5 @@
 # Django settings for mysite project.
+import os;
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -40,22 +41,23 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Static asset configuration
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
+#STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'static'),
+#)
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -156,13 +158,23 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
-
-
-
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
+#import dj_database_url
+#DATABASES = {
+#    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+#}
+
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/home/guillope/Documents/Code/Django/mysite.db',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',                      # Set to empty string for default.
+    },
 }
+
 
 

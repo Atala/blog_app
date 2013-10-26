@@ -9,9 +9,10 @@ import calendar
 def home(request):
 
     result = get_base_content()
+  
 
     return render_to_response('home.html',{
-		'posts': result['entries'][:5],
+	'posts': result['entries'],
         'dates' : result['dates'],
         })
 
@@ -57,11 +58,12 @@ def get_base_content():
         dates = []
         
         entries = Entry.objects.all()
+	
 
         for entry in Entry.objects.all():
             sthg = (entry.posted.year, monthDict[entry.posted.month],entry.posted.month)
             if not sthg in dates:
                 dates.append(sthg)
 
-        return {'dates':dates, 'entries':entries}           
+        return {'dates':dates, 'entries':entries[:5]}           
 

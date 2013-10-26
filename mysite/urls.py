@@ -7,7 +7,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = urlpatterns = patterns('',
     url(r'^$', 'mysite.blog.views.home', name='home'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -19,6 +19,9 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('mysite.blog.views',
     url(r'^', include('mysite.blog.urls', namespace="blog")),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 )
+
+

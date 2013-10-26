@@ -80,7 +80,7 @@ font-size:90%;
 
 #posttitle{
 	text-align:left;
-	font-size: 30;
+	font-size: 30px;
 	
 	width:300px;
 	padding:10px 20px ;
@@ -91,7 +91,7 @@ font-size:90%;
 	padding:10px;
 	float:left;
 	text-align: justify;
-	font-size: 14;
+	font-size: 14px;
 	
 }
 
@@ -104,14 +104,24 @@ font-size:90%;
 	margin-top:5px;
 }
 
-a:link:visited{
+a:visited{
 	color: #5BA199;
 	text-decoration:none ;
 }
 
-#category a:link{
-	color: #276384;
+a:link{
+	color: #5BA199;
 	text-decoration:none ;
+}
+
+a:hover
+{
+	color: #5BA199;
+	text-decoration:underline;
+}
+#right a:link{
+	color: black;
+	text-decoration:underline;
 }
 
 p {
@@ -122,4 +132,18 @@ p {
 #citation{
 	font-size:larger;
 	font-style: italic;
+}
+
+#cover_pic{
+	width:160px;
+	height:260px;
+	margin: 20px;
+	padding:5px;
+	background-color:white;
+	border: 1px solid black;
+	display: inline;
+	float:left;}
+
+q{
+	font-style:italic;
 }

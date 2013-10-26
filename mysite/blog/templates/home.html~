@@ -5,13 +5,11 @@
 	{% for post in posts %}
 				<section>
 				<h1 id="posttitle"><a href="posts/{{post.slug}}">{{ post.title }}</a></h1>
-			{% if post.book != None%}	
-			<img id='cover_pic' 	src= {{post.book.cover.url}} alt= {{post.body.title}} > 
-			{%endif%}
+		
+			<img src= '{{ STATIC_URL }}/{{post.book.cover.url}}' alt= post.body.title height="42" width="42" > 
+			
 		     	<text length = 30>{{ post.body | safe}}</text>
 		     	<footer> <a href="{%url 'blog:category' post.category %}">{{ post.category}} </a></footer> 	
 				</section>
-			<br>
-			<br>
-		{% endfor %}
+	{% endfor %}
 {% endblock %}
