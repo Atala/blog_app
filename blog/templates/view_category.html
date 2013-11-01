@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block title %} {{Category}}  {% endblock title %}
+
+
+{% block content %}
+   <h1 id="posttitle"> {{posts.0.category}}s</h1> 
+    {% for post in posts %}
+    <section id = "post">
+          <h1 id="posttitle">{{ post.title }}</h1>
+           <text length = 30>{{ post.body|safe}}</text>
+    </section>
+    {% endfor %}
+{% endblock content %}
+
+
+
+{% block left_margin %}
+           {% for entry in posts %}
+           <li><p><a href="{%url blog:post entry.posted.year entry.posted.month %}">{{entry.title}}</a></p></li>
+           {% endfor %}
+               
+{% endblock left_margin %}
