@@ -3,8 +3,8 @@
 
 {% block content %}
 <section>
-			 <h1 id="posttitle">{{ post.title }}</h1>
-		     <text length = 30>{{ post.body | safe}}</text>
-		     <footer> <a href="{% url 'blog:category'  post.category %}">{{ post.category}} </a></footer> 		
+           <h1 id="posttitle">{{ post.title }}</h1>
+           <text length = 30>{{ post.body|safe}}</text>
+           <footer> <a href="{% url blog:category  post.category %}">{{ post.category}} </a></footer>       
 </section>
 {% endblock content %}

@@ -4,7 +4,6 @@
 
 
 from django.db import models
-import calendar
 
 # Create your models here.
 
@@ -16,6 +15,7 @@ class Category(models.Model):
    def __unicode__ (self):
       return self.title
 
+
 class Author(models.Model):
    surname = models.CharField(max_length=100)
    lastname = models.CharField(max_length=100)
@@ -25,6 +25,7 @@ class Author(models.Model):
 
    class Meta:
       ordering = ('lastname',)
+
 
 def gen_save_path(instance, filename):
     """Generates the path as a string for fileStack field."""
@@ -37,18 +38,18 @@ class Book(models.Model):
    author = models.ManyToManyField(Author, related_name = 'author')
    translator = models.ManyToManyField(Author, related_name = 'translator')
    language = models.CharField(max_length=100)
-   
    cover = models.ImageField(upload_to="images", blank = True, null = True)
    
    def __unicode__ (self):
       return self.title
+
 
 class Entry(models.Model):
    ID = models.AutoField(primary_key=True)
    title = models.CharField(max_length=100, unique=True)
    slug = models.SlugField(max_length=100, unique=True)
    body = models.TextField()
-   posted  = models.DateField(db_index=True, auto_now_add=True)
+   posted  = models.DateField(auto_now_add=True)
    category = models.ForeignKey(Category)
    book = models.ForeignKey(Book, blank = True, null = True)
 

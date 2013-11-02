@@ -8,9 +8,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('blog.views',
     # Examples:
-     url(r'^posts/(?P<slug>[a-zA-Z0-9_-]+)/$', 'view_post', name='post'),
+     url(r'^posts/(?P<slug_given>[a-zA-Z0-9_-]+)/$', 'view_post', name='post'),
      url(r'^posts/(?P<year>\d+)/(?P<month>\d+)/$', 'view_month', name='month'),
-     url(r'^category/(?P<slug>[a-zA-Z0-9_]+)/$', 'view_category', name='category'),
+     url(r'^category/(?P<category>[a-zA-Z0-9_]+)/$', 'view_category', name='category'),
      url(r'^citations/$', 'view_citations', name='citation'),
     # url(r'^mysite/', include('mysite.foo.urls')),
 
