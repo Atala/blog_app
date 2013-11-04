@@ -28,12 +28,12 @@
                         <ul>
                             {% block left_margin %}
                             {% for year, monthName, monthNum in dates %}
-                            <li><p><a link href="{%url blog:month year monthNum %}">{{monthName}} {{year}}</a></p></li>
+                            <li><p><a link href="{%url 'blog:month' year monthNum %}">{{monthName}} {{year}}</a></p></li>
                             {% endfor %}
                             {% endblock %}
                         </ul>
                     </li>
-                    <li><a href="{% url blog:citation %}">Fragments</a>
+                    <li><a href="{% url 'blog:citation' %}">Fragments</a>
                     </li>
                 </div>
                 <div id="right">

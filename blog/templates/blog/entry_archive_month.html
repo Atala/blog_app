@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{month}} {% endblock title %}
+
+{% block content %}
+    {% for post in posts %}
+    <section id = "post">
+            <h1 id="posttitle">{{ post.title }}</h1>
+            <text length = 30>{{ post.body|safe}}</text>
+            <footer> <a href="{%url 'blog:category' post.category %}">{{ post.category}} </a></footer>         
+    </section>
+    {% endfor %}
+{% endblock content %}
+
+{% block left_margin %}
+            <p>{{month}} {{year}}</p>
+{% endblock left_margin %}
