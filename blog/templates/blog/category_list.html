@@ -5,8 +5,8 @@
 
 
 {% block content %}
-   <h1 id="posttitle"> {{posts.0.category}}s</h1> 
-    {% for post in posts %}
+   <h1 id="posttitle"> {{posts.0.category}}</h1> 
+    {% for post in posts_list %}
     <section id = "post">
           <h1 id="posttitle">{{ post.title }}</h1>
            <text length = 30>{{ post.body|safe}}</text>
