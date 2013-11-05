@@ -30,7 +30,7 @@ class MonthView(MonthArchiveView):
 
 class CitationList(ListView):
     model = Citation
-    context_object_name = 'posts_list'
+    context_object_name = 'quotes'
     template_name = 'citation_list.html'
 
     

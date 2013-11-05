@@ -10,7 +10,7 @@
     <section id = "post">
 	<h1 id="posttitle"><a href="{%url 'blog:post' post.slug %}">{{ post.title }}</a></h1>
 	{%if post.book%}
-	<img id = "cover_pic" src = "/media/{{post.book.cover}}" alt="book-cover" />
+	<img id = "cover_pic" src = "/media/images/{{post.book.cover}}" alt="book-cover" />
 	{%endif%}
 	<text length = 30>{{ post.body|safe}}</text>
 	<footer><a href="{%url 'blog:category' post.category.slug%}">{{post.category.title}}</footer></a>
