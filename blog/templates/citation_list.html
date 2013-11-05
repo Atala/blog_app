@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% for post in quotes %}
+        
+             <quote id='citation' length = 30>&ldquo;{{ post.body|safe}} &bdquo;</quote>
+             <br>
+             <footer style="text-align:right">{{post.author}} </footer>
+             {% load staticfiles %}
+             <div style="margin-left:200px;margin-top:20px;"><img src="{%static "images/traitnoir.jpg" %}" align="center"></div>         
+            
+{%endfor%}
+{% endblock content %}

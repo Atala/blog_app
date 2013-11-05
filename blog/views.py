@@ -8,7 +8,7 @@ import calendar
  
 
 class PostList(ListView):
-    model, context_object_name, slug_kwarg = Entry, 'posts_list', 'slug'
+    model, context_object_name, slug_kwarg, template_name  = Entry, 'posts_list', 'slug', 'entry_list.html'
     
     def get_queryset(self, **kwargs):
 	slug = self.kwargs.get('slug', None)
@@ -20,12 +20,18 @@ class PostList(ListView):
 
 
 class PostDetail(DetailView):
-    context_object_name = 'post'  
+    context_object_name, template_name = 'post'  , 'entry_detail.html'
     
 
   
 class MonthView(MonthArchiveView):
-    date_field, context_object_name, month_format  = 'posted' , 'posts', '%m' 
+    date_field, context_object_name, month_format, template_name  = 'posted' , 'posts', '%m', 'entry_archive_month.html' 
 
- 
+
+class CitationList(ListView):
+    model = Citation
+    context_object_name = 'posts_list'
+    template_name = 'citation_list.html'
+
+    
 

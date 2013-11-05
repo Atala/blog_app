@@ -23,14 +23,14 @@
            </div>
            <div id="center">
                 <div id="left">
-                    <li onclick='show_months()'>Articles
-                        <ul>
+                    <li><a link href="{%url 'blog:home' %}">Articles</a>
+                        
                             {% block left_margin %}
                             {% for year, monthName, monthNum in dates_feed %}
-                            <li><p><a link href="{%url 'blog:month' year monthNum %}">{{monthName}} {{year}}</a></p></li>
+                            <li style="list-style-type: none;"><p><a link href="{%url 'blog:month' year monthNum %}">{{monthName}} {{year}}</a></p></li>
                             {% endfor %}
                             {% endblock %}
-                        </ul>
+                        
                     </li>
                     <li><a href="{% url 'blog:citation' %}">Fragments</a>
                     </li>

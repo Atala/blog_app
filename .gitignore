@@ -3,4 +3,4 @@ venv
 staticfiles
 *.swp
 *~
-mysite/blog/media/*
+blog/media/*
