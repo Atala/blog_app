@@ -36,7 +36,7 @@ class Book(models.Model):
    supplier = models.CharField(max_length=100)
    body = models.TextField()
    author = models.ManyToManyField(Author, related_name = 'author')
-   translator = models.ManyToManyField(Author, related_name = 'translator')
+   translator = models.ManyToManyField(Author, related_name = 'translator', blank = True, null = True)
    language = models.CharField(max_length=100)
    cover = models.ImageField(upload_to="images", blank = True, null = True)
    
@@ -64,10 +64,8 @@ class Entry(models.Model):
 class Citation(models.Model):
    body = models.TextField()
    author = models.ForeignKey(Author)
-   book = models.ForeignKey(Book)
+   book = models.ForeignKey(Book, blank = True, null = True)
    
-   def __unicode__ (self):
-      return self.title
 
 
 
