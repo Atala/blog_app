@@ -119,6 +119,7 @@ INSTALLED_APPS = (
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
      'django.contrib.admindocs',
+     'storages',
      'blog',
 )
 
@@ -165,18 +166,24 @@ DATABASES = {
 }
 
 #DATABASES = {
- #   'default': {
-  #      'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-   #     'NAME': '/home/guillope/Documents/Code/Django/mysite.db',                      # Or path to database file if using sqlite3.
-    #    # The following settings are not used with sqlite3:
+#   'default': {
+#        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#       'NAME': '/home/guillope/Documents/Code/Django/mysite.db',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
 #        'USER': '',
  #       'PASSWORD': '',
   #      'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
    #     'PORT': '',                      # Set to empty string for default.
-    #},
+ #   },
 #}
 
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + ("blog.pass_date.get_base_content",
 			       "django.core.context_processors.request",
 			       "django.contrib.auth.context_processors.auth")
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = 'AKIAJL2R2RLYIXDZP2MQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'djangoblogpictures'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'

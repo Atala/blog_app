@@ -1,3 +1,4 @@
+newrelic
 Django==1.5.5
 PIL==1.1.7
 argparse==1.2.1
