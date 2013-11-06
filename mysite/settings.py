@@ -47,14 +47,16 @@ MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = '/media/'
+#MEDIA_URL = '/media/'
 
 # Static asset configuration
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-#STATIC_ROOT = 'staticfiles'
+
 STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
+
+
 
 #STATICFILES_DIRS = (
 #    os.path.join(BASE_DIR, 'static'),
@@ -161,21 +163,21 @@ ALLOWED_HOSTS = ['*']
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-}
-
 #DATABASES = {
-#   'default': {
-#        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#       'NAME': '/home/guillope/Documents/Code/Django/mysite.db',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-#        'USER': '',
- #       'PASSWORD': '',
-  #      'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-   #     'PORT': '',                      # Set to empty string for default.
- #   },
+#    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 #}
+
+DATABASES = {
+   'default': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+       'NAME': '/home/guillope/Documents/Code/Django/mysite.db',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+       'PORT': '',                      # Set to empty string for default.
+    },
+}
 
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + ("blog.pass_date.get_base_content",
@@ -187,3 +189,9 @@ AWS_ACCESS_KEY_ID = 'AKIAJL2R2RLYIXDZP2MQ'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'djangoblogpictures'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static/'
+STATIC_URL = '/static/'
+
+#ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+MEDIA_ROOT = ''
+MEDIA_URL = ''
