@@ -1,1 +1,1 @@
-web: run-program gunicorn mysite.wsgi
+web: gunicorn djangoproject.wsgi
