@@ -163,9 +163,10 @@ ALLOWED_HOSTS = ['*']
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-#DATABASES = {
-#    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-#}
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+}'''
+
 
 DATABASES = {
    'default': {
@@ -177,7 +178,7 @@ DATABASES = {
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
        'PORT': '',                      # Set to empty string for default.
     },
-}
+}'''
 
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + ("blog.pass_date.get_base_content",
