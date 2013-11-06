@@ -165,20 +165,19 @@ ALLOWED_HOSTS = ['*']
 import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-}'''
+}
 
-
-DATABASES = {
-   'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-       'NAME': '/home/guillope/Documents/Code/Django/mysite.db',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-       'PORT': '',                      # Set to empty string for default.
-    },
-}'''
+#DATABASES = {
+#   'default': {
+#        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#       'NAME': '/home/guillope/Documents/Code/Django/mysite.db',                      # Or path to database file if using sqlite3.
+#        # The following settings are not used with sqlite3:
+#        'USER': '',
+#        'PASSWORD': '',
+#        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+#       'PORT': '',                      # Set to empty string for default.
+#    },
+#}
 
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + ("blog.pass_date.get_base_content",
