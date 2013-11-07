@@ -1,6 +1,0 @@
-venv
-*.pyc
-staticfiles
-*.swp
-*~
-blog/media/*
