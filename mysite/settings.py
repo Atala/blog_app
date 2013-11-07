@@ -398,7 +398,7 @@ if not DEBUG :
     EMAIL_BACKEND = 'django_mandrill.mail.backends.mandrillbackend.EmailBackend'
     EMAIL_PORT = 587
     EMAIL_HOST_USER = 'alois.guillope@gmail.com'
-    EMAIL_HOST_PASSWORD = '1iYNensLNHVrivrRo2ZMtA' 
+    MANDRILL_API_KEY = '1iYNensLNHVrivrRo2ZMtA' 
 
 else:
     EMAIL_HOST = 'localhost'
