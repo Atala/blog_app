@@ -396,8 +396,9 @@ TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + ("b
 if not DEBUG :
     EMAIL_HOST = 'smtp.mandrillapp.com'
     EMAIL_BACKEND = 'django_mandrill.mail.backends.mandrillbackend.EmailBackend'
-    MANDRILL_API_KEY = '0UF8GhcJdCb7DDKfJTNOyA'
-    USER_NAME = 'alois.guillope@gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = 'alois.guillope@gmail.com'
+    EMAIL_HOST_PASSWORD = os.environ.get('MANDRILL_APIKEY')
 
 else:
     EMAIL_HOST = 'localhost'
