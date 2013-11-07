@@ -4,4 +4,4 @@ staticfiles
 *.swp
 *~
 blog/media/*
-mysite/settings.py
+
